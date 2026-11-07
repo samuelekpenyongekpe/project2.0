@@ -1,0 +1,6 @@
+{
+  "name": "Healthy Recipe Finder",
+  "description": "Discover quick, whole-food recipes you can cook tonight with zero fuss. Filter by prep time, cook time, and ingredients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

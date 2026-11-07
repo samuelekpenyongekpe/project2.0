@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smashburger — Belief is in the Bite™ | Menu, Rewards & Recipes</title>
+  <meta name="description" content="Discover our made-to-order smashburgers, fresh salads, black bean veggie burgers, hand-spun shakes, and culinary recipes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Feedback Tab (Right Edge matching screenshot) -->
+  <div class="floating-feedback-tab" aria-label="Customer Feedback">Feedback</div>
+
+  <!-- =========================================================================
+       1. TOP ANNOUNCEMENT BANNER (Yellow)
+       ========================================================================= -->
+  <div class="top-announcement-banner">
+    <span>America’s favorite dessert just found a straw. Meet the Apple Pie Shake.</span>
+    <a href="#menu-shakes">Order Now &rarr;</a>
+    <button class="banner-close-btn" type="button" aria-label="Dismiss banner" onclick="this.parentElement.style.display='none';">&times;</button>
+  </div>
+
+  <!-- =========================================================================
+       2. MAIN NAVIGATION HEADER (Black)
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- Logo Lockup -->
+      <a href="#" class="brand-logo" aria-label="Smashburger Home">
+        <div class="logo-main">
+          <span class="logo-smash">SMASH</span>
+          <span class="logo-burger">BURGER&#174;</span>
+        </div>
+        <span class="logo-tagline">BELIEF IS IN THE BITE&#8482;</span>
+      </a>
+
+      <!-- Pure CSS mobile menu toggle -->
+      <input type="checkbox" id="nav-toggle">
+
+      <!-- Navigation Links -->
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="#menu" class="active">Menu</a>
+        <a href="#rewards">SmashRewards</a>
+        <a href="#giftcards">Gift Cards</a>
+        <a href="#deals">Deals</a>
+        <a href="#catering">Catering</a>
+        <a href="#locations">Locations</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <a href="#signin" class="btn-signin">Sign In</a>
+        <a href="#cart" class="cart-btn" aria-label="Shopping Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+          <div class="nav-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. LOCATION SUB-BAR (Red)
+       ========================================================================= -->
+  <div class="location-subbar">
+    <div class="container location-subbar-inner">
+      <a href="#locations" class="location-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+        </svg>
+        <span>Choose a location to order</span>
+      </a>
+      <a href="#menu" class="btn-ordernow">Order Now</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         4. HERO SECTION (Split Black & Red)
+         ======================================================================= -->
+    <section class="hero-banner">
+      <div class="container hero-grid">
+        <!-- Left Content -->
+        <div class="hero-left-content">
+          <div class="hero-title-red">New York's Favorite</div>
+          <div class="hero-title-red">Flavor.</div>
+          <div class="hero-title-white">Smashed</div>
+          <a href="#menu" class="btn-hero-cta">Discover the Latest Smash</a>
+        </div>
+
+        <!-- Right Media Frame matching Screenshot 6 -->
+        <div class="hero-right-media">
+          <div class="hero-media-wrapper">
+            <img src="/public/assets/aistudio/Screenshot_2026-11-07_083819_f48a5afa.png" alt="Smashburger New York's Favorite Flavor Smashed">
+            <div class="hero-badge-overlay">Belief is in the bite&#8482;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. TURN CRAVINGS INTO REWARDS (Red Promo Card)
+         ======================================================================= -->
+    <section class="rewards-section" id="rewards">
+      <div class="container">
+        <div class="rewards-card-white">
+          <!-- Left Media -->
+          <div class="rewards-card-media">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Juicy double cheeseburger with fresh ingredients">
+          </div>
+          <!-- Right Content -->
+          <div class="rewards-card-body">
+            <h2 class="rewards-title">Turn Cravings Into Rewards</h2>
+            <p>
+              Join SmashRewards and unlock <strong>$5 off</strong> your first $15+ order &mdash; plus earn 10 points for every dollar spent.
+            </p>
+            <p>
+              Sign up, dig in, and save. It's that easy.
+            </p>
+            <div class="rewards-buttons-row">
+              <a href="#signup" class="btn-rewards-red">Sign Up</a>
+              <a href="#learnmore" class="btn-rewards-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. MENU CATEGORIES SECTION (9 Food Cards matching Screenshot 7 & 1)
+         ======================================================================= -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="menu-section-header">
+          <h2 class="menu-main-title">Menu</h2>
+          <p class="menu-disclaimer">* Menu options may vary by location.</p>
+        </div>
+
+        <div class="menu-grid">
+          <!-- 1. New & Limited Time -->
+          <a href="#menu-new" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <span class="badge-new-green">New!</span>
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="New and Limited Time Smashburger combo">
+            </div>
+            <span class="menu-btn-pill">New & Limited Time</span>
+          </a>
+
+          <!-- 2. Smashburgers -->
+          <a href="#menu-burgers" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="Classic double smashburger with melted cheese and fresh vegetables">
+            </div>
+            <span class="menu-btn-pill">Smashburgers&#174;</span>
+          </a>
+
+          <!-- 3. Big Dogs -->
+          <a href="#menu-dogs" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?auto=format&fit=crop&w=500&q=80" alt="Big Dog hot dog with mustard, relish and onions">
+            </div>
+            <span class="menu-btn-pill">Big Dogs</span>
+          </a>
+
+          <!-- 4. Chicken -->
+          <a href="#menu-chicken" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <span class="badge-new-green">New!</span>
+              <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=500&q=80" alt="Crispy chicken sandwich with lettuce, tomato and bacon">
+            </div>
+            <span class="menu-btn-pill">Chicken</span>
+          </a>
+
+          <!-- 5. Black Bean (Healthy Vegetarian) -->
+          <a href="#menu-blackbean" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=500&q=80" alt="Healthy whole-food black bean burger with crisp lettuce and tomato">
+            </div>
+            <span class="menu-btn-pill">Black Bean</span>
+          </a>
+
+          <!-- 6. Sides -->
+          <a href="#menu-sides" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Seasoned smashfries with cheese and jalapeños">
+            </div>
+            <span class="menu-btn-pill">Sides</span>
+          </a>
+
+          <!-- 7. Salads (Healthy Choice) -->
+          <a href="#menu-salads" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Fresh wholesome chicken garden salad with tomatoes, onions and vinaigrette">
+            </div>
+            <span class="menu-btn-pill">Salads</span>
+          </a>
+
+          <!-- 8. Kids Meals -->
+          <a href="#menu-kids" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="Kids tenders meal with fries and organic milk">
+            </div>
+            <span class="menu-btn-pill">Kids Meals</span>
+          </a>
+
+          <!-- 9. Hand-Spun Shakes -->
+          <a href="#menu-shakes" class="menu-category-card">
+            <div class="menu-card-image-box">
+              <span class="badge-new-green">New!</span>
+              <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" alt="Hand-spun shake with whipped cream, cinnamon and apple pie flavor">
+            </div>
+            <span class="menu-btn-pill">Hand-Spun Shakes</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. WE TAKE PRIDE IN OUR CRAFT (Black Background matching Screenshot 1)
+         ======================================================================= -->
+    <section class="craft-section" id="craft">
+      <div class="container craft-grid">
+        <!-- Left Media: Chef tossing fries in air -->
+        <div class="craft-media">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80" alt="Culinary chef tossing fresh crispy fries in stainless steel bowl">
+        </div>
+
+        <!-- Right Text Content -->
+        <div class="craft-content">
+          <h2 class="craft-title-gold">We Take Pride in Our Craft</h2>
+          <p>
+            Our made-to-order burgers are built differently. Using our signature proprietary burger smasher, our culinary masters utilize a special smashing technique to create a mouthwatering caramelized, crispy sear that seals in all the juicy goodness within.
+          </p>
+          <p>
+            Our passion for culinary innovation drives us to source certified Angus beef, craft whole-food vegetarian black bean burgers, and hand-spin each shake fresh to order.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. PROMO CARDS (Red Background matching Screenshot 2 & 3)
+         ======================================================================= -->
+    <section class="promo-cards-section" id="promos">
+      <div class="container">
+        <!-- Top Row of 3 Cards -->
+        <div class="promo-grid-top">
+          <!-- Card 1: Gift Cards -->
+          <div class="promo-card" id="giftcards">
+            <div class="promo-card-media">
+              <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Double smashburger with gift card">
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Gift Cards</h3>
+              <p class="promo-card-text">
+                Purchase virtual gift cards! Available in $15-$250, choose the gift that fits the occasion.
+              </p>
+              <a href="#buy-giftcards" class="btn-promo-action">Buy Gift Cards</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Join SmashRewards -->
+          <div class="promo-card">
+            <div class="promo-card-media">
+              <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=600&q=80" alt="Mobile phone with SmashRewards rewards app">
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Join SmashRewards</h3>
+              <p class="promo-card-text">
+                Order Smashburger&#174; fast, save your favorite orders, earn points, and get free food. It's really that simple!
+              </p>
+              <a href="#rewards" class="btn-promo-action">Join SmashRewards</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Catering -->
+          <div class="promo-card" id="catering">
+            <div class="promo-card-media">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Catering burger spread with cookies, fries, and fixings">
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Catering</h3>
+              <p class="promo-card-text">
+                Make your next event a Smash!
+              </p>
+              <a href="#order-catering" class="btn-promo-action">Catering</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row of 2 Cards -->
+        <div class="promo-grid-bottom">
+          <!-- Card 4: Fresh Off The Grill -->
+          <div class="promo-card">
+            <div class="promo-card-media">
+              <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=600&q=80" alt="Fresh double bacon smashburger hot off the grill">
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Fresh Off the Grill</h3>
+              <p class="promo-card-text">
+                New menu drops, brand updates, and the stories behind every smash. See what's happening at Smashburger&#174;.
+              </p>
+              <a href="#about-us" class="btn-promo-action">Read All About Us</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Get The Inside Smash -->
+          <div class="promo-card">
+            <div class="promo-card-media">
+              <img src="https://images.unsplash.com/photo-1499028344343-cd173efc68a9?auto=format&fit=crop&w=600&q=80" alt="Hand pressing stainless steel burger smasher on hot flat grill">
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Get the Inside Smash</h3>
+              <p class="promo-card-text">
+                Think you know burgers? Think again. From bold recipes to grilling secrets and expert tips, we're breaking all the rules (except the ones that make a great smash).
+              </p>
+              <a href="#burger-hub" class="btn-promo-action">Explore the Burger Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       9. FOOTER (Black Background matching Screenshot 4)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Column 1: Logo & Social -->
+        <div class="footer-col-brand">
+          <div class="footer-logo-block">
+            <a href="#" class="brand-logo" aria-label="Smashburger">
+              <div class="logo-main">
+                <span class="logo-smash">SMASH</span>
+                <span class="logo-burger">BURGER&#174;</span>
+              </div>
+              <span class="logo-tagline">BELIEF IS IN THE BITE&#8482;</span>
+            </a>
+          </div>
+
+          <div class="footer-social-block">
+            <h5>Follow Us</h5>
+            <div class="footer-social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+              <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok">&#9835;</a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">&#9678;</a>
+              <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X Twitter">&#120143;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Helpful Links -->
+        <div class="footer-col">
+          <h4>Helpful Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#food">Our Food</a></li>
+            <li><a href="#nutrition">Nutrition</a></li>
+            <li><a href="#catering">Catering</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+            <li><a href="#rewards">Rewards</a></li>
+            <li><a href="#giftcards">Gift Cards</a></li>
+            <li><a href="#locations">Locations</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Inquiries -->
+        <div class="footer-col">
+          <h4>Inquiries</h4>
+          <ul>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#franchising">Franchising</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#angus">Smashburger&#174; Certified Angus Beef</a></li>
+            <li><a href="#supply">Supply Chain</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Popular Searches & Recipes -->
+        <div class="footer-col">
+          <h4>Popular Searches</h4>
+          <ul>
+            <li><a href="#hub">The Burger Hub</a></li>
+            <li><a href="#veggie">Veggie Burgers</a></li>
+            <li><a href="#whatis">What Is A Smash Burger?</a></li>
+            <li><a href="#recipe">Smash Burger Recipe</a></li>
+            <li><a href="#local">Local Burger Places</a></li>
+            <li><a href="#burgers-fries">Burgers &amp; Fries</a></li>
+            <li><a href="#burgers-shakes">Burgers &amp; Shakes</a></li>
+            <li><a href="#double">Double Smashburgers&#174;</a></li>
+            <li><a href="#blackbean">Black Bean Burger</a></li>
+            <li><a href="#value">Smash&#174; Everyday Value Menu</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Download Our App -->
+        <div class="footer-col">
+          <h4>Download Our App</h4>
+          <div class="app-download-buttons">
+            <a href="https://play.google.com" target="_blank" rel="noreferrer" class="store-badge-btn" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.6 1.4c-.2.3-.3.7-.3 1.2v18.8c0 .5.1.9.3 1.2l.1.1 10.6-10.6v-.2L3.7 1.3l-.1.1z"/>
+                <path d="M17.8 14.8l-3.5-3.5v-.2l3.5-3.5.1.1 4.1 2.3c1.2.7 1.2 1.8 0 2.5l-4.2 2.3z"/>
+                <path d="M14.3 11.2L3.6 21.9c.4.4 1.1.5 1.9.1l11.4-6.5-2.6-4.3z"/>
+                <path d="M14.3 12.8l2.6-4.3-11.4-6.5c-.8-.4-1.5-.3-1.9.1l10.7 10.7z"/>
+              </svg>
+              <div class="store-badge-text">
+                <span>Get it on</span>
+                <span>Google Play</span>
+              </div>
+            </a>
+
+            <a href="https://apple.com" target="_blank" rel="noreferrer" class="store-badge-btn" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.98.6-2.62 1.35-.57.65-1.07 1.72-.94 2.74 1 .08 2.02-.49 2.63-1.24z"/>
+              </svg>
+              <div class="store-badge-text">
+                <span>Download on the</span>
+                <span>App Store</span>
+              </div>
+            </a>
+          </div>
+          <p class="footer-app-disclaimer">
+            Apple and Apple logo are trademarks of Apple Inc. registered in the U.S. and other countries. Apple Store is a service mark of Apple Inc. registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google Inc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
