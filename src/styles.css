@@ -1,0 +1,1743 @@
+/* ==========================================================================
+   HEALTHY RECIPE FINDER - DEDICATED STYLESHEET
+   Responsive for Mobile (<768px), Tablet (768px-1023px), and Desktop (1024px+)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Variables & Base Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --color-forest: #12382b;
+  --color-forest-dark: #092118;
+  --color-forest-light: #1b4d3c;
+  --color-forest-soft: #eaf3ee;
+  
+  --color-peach: #f7d6c4;
+  --color-peach-light: #fff2ea;
+  --color-peach-dark: #b85d34;
+  
+  --color-mint-light: #e8f5ef;
+  --color-mint-dark: #226f54;
+  
+  --color-lavender-light: #f0edfa;
+  --color-lavender-dark: #5c4ca8;
+
+  --color-canvas: #faf8f5;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f5f2eb;
+  --color-border: #e8e3d8;
+  --color-border-focus: #12382b;
+
+  --color-text-title: #142821;
+  --color-text-body: #495e56;
+  --color-text-muted: #73877f;
+
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  --shadow-subtle: 0 2px 8px rgba(18, 56, 43, 0.04);
+  --shadow-card: 0 4px 20px rgba(18, 56, 43, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 12px 28px rgba(18, 56, 43, 0.12), 0 3px 8px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 20px 48px rgba(10, 30, 22, 0.22);
+
+  --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Defaults
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  background-color: var(--color-canvas);
+  color: var(--color-text-body);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select {
+  font-family: inherit;
+  font-size: 0.9375rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout Container
+   -------------------------------------------------------------------------- */
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--color-canvas);
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Header & Top Bar Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  letter-spacing: -0.02em;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-lockup:hover {
+  opacity: 0.9;
+}
+
+.brand-icon-leaf {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-forest);
+  flex-shrink: 0;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 860px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-forest);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-forest);
+  border-radius: var(--radius-pill);
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-forest);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-header-cta:hover {
+  background-color: var(--color-forest-dark);
+}
+
+.btn-header-cta:active {
+  transform: scale(0.98);
+}
+
+/* Mobile Hamburger Toggle */
+.btn-mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-forest);
+}
+
+@media (min-width: 860px) {
+  .btn-mobile-toggle {
+    display: none;
+  }
+}
+
+/* Mobile Menu Drawer */
+.mobile-drawer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem 1.75rem;
+  background-color: var(--color-canvas);
+  border-bottom: 1px solid var(--color-border);
+  animation: slideDown 200ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.mobile-nav-link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-title);
+  padding: 0.5rem 0;
+}
+
+.mobile-nav-link.active {
+  color: var(--color-forest);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* Decorative Background swooshes matching the design */
+.hero-bg-accent-left {
+  position: absolute;
+  top: 15%;
+  left: -50px;
+  width: 140px;
+  height: 380px;
+  background: radial-gradient(ellipse at center, rgba(197, 203, 235, 0.5) 0%, rgba(250, 248, 245, 0) 70%);
+  border-radius: 50% 30% 70% 40% / 50% 60% 40% 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-bg-accent-right {
+  position: absolute;
+  top: 10%;
+  right: -60px;
+  width: 160px;
+  height: 440px;
+  background: radial-gradient(ellipse at center, rgba(197, 203, 235, 0.45) 0%, rgba(250, 248, 245, 0) 70%);
+  border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-headline {
+  font-size: clamp(2.35rem, 6vw, 3.75rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+/* Highlight badge / marker on "Healthy meals," */
+.hero-highlight-word {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero-highlight-word::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 4px;
+  height: 40%;
+  background-color: var(--color-peach);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero-subtext {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--color-text-body);
+  margin-bottom: 1.75rem;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-forest);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(18, 56, 43, 0.2);
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--color-forest-dark);
+  transform: translateY(-1px);
+}
+
+.btn-hero-primary:active {
+  transform: translateY(0);
+}
+
+/* Hero Media Card */
+.hero-media-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.hero-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 6px;
+  box-shadow: 0 16px 36px rgba(18, 56, 43, 0.08);
+  border: 1px solid var(--color-border);
+}
+
+.hero-media-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 6px);
+}
+
+@media (min-width: 640px) {
+  .hero-media-img {
+    height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-media-img {
+    height: 480px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. "What You'll Get" Feature Section
+   -------------------------------------------------------------------------- */
+.features-section {
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+  background-color: var(--color-canvas);
+}
+
+.section-heading-center {
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  color: var(--color-forest);
+  text-align: center;
+  letter-spacing: -0.025em;
+  margin-bottom: 2.75rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  padding: 0.5rem;
+}
+
+.feature-icon-box {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.feature-icon-box.peach {
+  background-color: var(--color-peach-light);
+  color: var(--color-peach-dark);
+}
+
+.feature-icon-box.mint {
+  background-color: var(--color-mint-light);
+  color: var(--color-mint-dark);
+}
+
+.feature-icon-box.lavender {
+  background-color: var(--color-lavender-light);
+  color: var(--color-lavender-dark);
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.015em;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   7. "Built For Real Life" Split Section
+   -------------------------------------------------------------------------- */
+.built-for-life-section {
+  padding-top: 3.5rem;
+  padding-bottom: 4.5rem;
+  background-color: var(--color-canvas);
+}
+
+.built-for-life-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .built-for-life-split {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+  }
+}
+
+.built-content h2 {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+}
+
+.built-highlight-marker {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.built-highlight-marker::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 8px;
+  background-color: var(--color-peach);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.built-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 1.25rem;
+}
+
+.built-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 6px;
+  box-shadow: 0 12px 30px rgba(18, 56, 43, 0.08);
+  border: 1px solid var(--color-border);
+}
+
+.built-media-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 6px);
+}
+
+@media (min-width: 640px) {
+  .built-media-img {
+    height: 360px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Recipes Catalog Section & Filter Controls
+   -------------------------------------------------------------------------- */
+.recipes-catalog-section {
+  padding-top: 4.5rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-canvas);
+}
+
+.recipes-header-text {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 2.5rem;
+}
+
+.recipes-headline {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.recipes-subtext {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-body);
+}
+
+/* Filter Bar Container */
+.filter-bar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .filter-bar {
+    padding: 1rem 1.25rem;
+  }
+  .filter-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+.filter-controls-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .filter-controls-row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Search Input */
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 2.75rem;
+  padding-left: 2.5rem;
+  padding-right: 2.25rem;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-title);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input:focus {
+  border-color: var(--color-forest);
+  box-shadow: 0 0 0 3px rgba(18, 56, 43, 0.1);
+  background-color: #ffffff;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+.search-clear-btn:hover {
+  color: var(--color-text-title);
+}
+
+/* Select Dropdown Filters */
+.filter-dropdown-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  min-width: 155px;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  padding-left: 0.875rem;
+  padding-right: 2.25rem;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-title);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.custom-select:focus {
+  border-color: var(--color-forest);
+  background-color: #ffffff;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* Secondary Filter Chips: Dietary & Saved */
+.filter-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.chips-list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip-btn {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-body);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-chip-btn:hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest);
+}
+
+.filter-chip-btn.active {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.results-meta-count {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   9. Recipe Cards Grid (Mobile 1-col, Tablet 2-col, Desktop 3-col)
+   -------------------------------------------------------------------------- */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .recipes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Recipe Card matching exact UI in screenshot */
+.recipe-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.recipe-image-frame {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background-color: #f0ece3;
+}
+
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.recipe-card:hover .recipe-img {
+  transform: scale(1.05);
+}
+
+/* Bookmark Button in Top Right of image */
+.recipe-bookmark-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-forest);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  z-index: 5;
+}
+
+.recipe-bookmark-btn:hover {
+  transform: scale(1.1);
+}
+
+.recipe-bookmark-btn.saved {
+  color: #e53e3e;
+  background-color: #ffffff;
+}
+
+/* Dietary tag badges floating on card */
+.recipe-tag-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(18, 56, 43, 0.85);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+}
+
+/* Card Content Area */
+.recipe-card-content {
+  padding: 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.recipe-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+.recipe-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-body);
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+/* Metadata row (Servings | Prep | Cook) */
+.recipe-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.15rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.recipe-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.recipe-meta-item svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--color-forest);
+}
+
+.recipe-meta-item strong {
+  font-weight: 600;
+  color: var(--color-text-title);
+}
+
+/* View Recipe Button */
+.btn-view-recipe {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-forest);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-view-recipe:hover {
+  background-color: var(--color-forest-dark);
+}
+
+.btn-view-recipe:active {
+  transform: scale(0.99);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Recipe Detail Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(10, 24, 18, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-dialog {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-modal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideUp 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-title);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.modal-hero-cover {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: #f0ece3;
+}
+
+@media (min-width: 640px) {
+  .modal-hero-cover {
+    height: 340px;
+  }
+}
+
+.modal-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 1.75rem 1.5rem 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .modal-body {
+    padding: 2.25rem 2.5rem 2.75rem;
+  }
+}
+
+.modal-header-meta {
+  margin-bottom: 1.5rem;
+}
+
+.modal-tags-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.modal-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-forest-soft);
+  color: var(--color-forest);
+}
+
+.modal-title {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.modal-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-body);
+}
+
+/* Key Metrics Strip */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 600px) {
+  .metrics-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metric-pill {
+  text-align: center;
+}
+
+.metric-pill-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.metric-pill-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+/* Servings Scaler */
+.servings-scaler-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-forest-soft);
+  border: 1px solid rgba(18, 56, 43, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.scaler-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-forest);
+}
+
+.scaler-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-scale-step {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid var(--color-forest);
+  color: var(--color-forest);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-scale-step:hover:not(:disabled) {
+  background-color: var(--color-forest);
+  color: #ffffff;
+}
+
+.btn-scale-step:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.scaler-count {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  min-width: 3.5rem;
+  text-align: center;
+}
+
+/* Ingredients & Steps Layout */
+.modal-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .modal-columns {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.section-subhead {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ingredients checklist */
+.ingredients-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-title);
+  cursor: pointer;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-canvas);
+  transition: background-color var(--transition-fast);
+}
+
+.ingredient-item:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.ingredient-item.checked {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+.ingredient-checkbox {
+  margin-top: 0.2rem;
+  accent-color: var(--color-forest);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* Instructions Step-by-Step */
+.instructions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.instruction-step {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-title);
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.instruction-step:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.instruction-step.completed {
+  border-color: #c8e6c9;
+  background-color: #f1f8e9;
+  opacity: 0.8;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background-color: var(--color-forest);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instruction-step.completed .step-number {
+  background-color: var(--color-mint-dark);
+}
+
+/* Cooking Timer Widget */
+.timer-widget {
+  background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-forest-dark) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.timer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.timer-icon-glow {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-display {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.timer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-timer-action {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  color: var(--color-forest);
+  transition: all var(--transition-fast);
+}
+
+.btn-timer-action:hover {
+  background-color: var(--color-peach-light);
+}
+
+.btn-timer-reset {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.btn-timer-reset:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Chef Tip Callout */
+.chef-tip-box {
+  background-color: var(--color-peach-light);
+  border-left: 4px solid var(--color-peach-dark);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.chef-tip-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-peach-dark);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.chef-tip-text {
+  font-size: 0.925rem;
+  color: #5c3520;
+}
+
+/* Modal Action Bar */
+.modal-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-modal-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-title);
+  transition: all var(--transition-fast);
+}
+
+.btn-modal-action:hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest);
+}
+
+/* --------------------------------------------------------------------------
+   11. Call to Action Banner ("Ready to cook smarter?")
+   -------------------------------------------------------------------------- */
+.cta-banner-section {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-canvas);
+}
+
+.cta-banner-card {
+  position: relative;
+  background-color: #e5eee8;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(18, 56, 43, 0.08);
+}
+
+@media (min-width: 768px) {
+  .cta-banner-card {
+    padding: 4rem 3rem;
+  }
+}
+
+.cta-watermark-left,
+.cta-watermark-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;
+  height: 140px;
+  opacity: 0.12;
+  color: var(--color-forest);
+  pointer-events: none;
+}
+
+.cta-watermark-left {
+  left: 20px;
+}
+
+.cta-watermark-right {
+  right: 20px;
+}
+
+.cta-headline {
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-subtext {
+  font-size: 1.05rem;
+  color: var(--color-text-body);
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-cta-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-forest);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.85rem 2.25rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(18, 56, 43, 0.2);
+}
+
+.btn-cta-banner:hover {
+  background-color: var(--color-forest-dark);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   12. About Philosophy Section (Modal or In-Page Section)
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+}
+
+.about-prose h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-forest);
+  margin-bottom: 1.25rem;
+}
+
+.about-prose p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 1rem;
+}
+
+.about-stats-card {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.about-stat-item h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-forest);
+  margin-bottom: 0.25rem;
+}
+
+.about-stat-item p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   13. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-canvas);
+  border-top: 1px solid var(--color-border);
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background-color: var(--color-forest);
+  color: #ffffff;
+  border-color: var(--color-forest);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+  }
+}
+
+.btn-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-forest);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.btn-back-to-top:hover {
+  color: var(--color-forest-dark);
+}
+
+/* --------------------------------------------------------------------------
+   14. Print Media Queries (For printing crisp recipes)
+   -------------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .hero-section,
+  .features-section,
+  .built-for-life-section,
+  .filter-bar,
+  .cta-banner-section,
+  .site-footer,
+  .modal-close-btn,
+  .btn-modal-action,
+  .timer-widget {
+    display: none !important;
+  }
+
+  body, .site-wrapper, .modal-overlay, .modal-dialog {
+    background: #ffffff !important;
+    color: #000000 !important;
+    position: static !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .modal-body {
+    padding: 0 !important;
+  }
+}
